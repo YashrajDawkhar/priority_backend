@@ -21,12 +21,12 @@ exports.save = async function (req, res) {
         { new: true }
       );
 
-      res.status(200).json(updatedDoc);
+      res.status(200).json({messsage:"updated"});
     } else {
       // If a document with the category does not exist, create a new one
       const newDoc = await Course.create({ category, courses: [courseData] });
 
-      res.status(200).json(newDoc);
+      res.status(200).json({messsage:"New Course Created updated"});
     }
   } catch (err) {
     res.status(500).json({ error: err.message });
